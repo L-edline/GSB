@@ -19,47 +19,49 @@
 ?>
 <hr>
 <div class="row">
-    <div class="panel panel-info">
-        <div class="panel-heading">Descriptif des éléments hors forfait</div>
-        <table class="table table-bordered table-responsive">
-            <thead>
-                <tr>
-                    <th class="date">Date</th>
-                    <th class="libelle">Libellé</th>  
-                    <th class="montant">Montant</th>  
-                    <th class="action">&nbsp;</th> 
-                </tr>
-            </thead>  
-            <tbody>
-            <?php
-            foreach ($lesFraisHorsForfait as $unFraisHorsForfait) {
-                $libelle = htmlspecialchars($unFraisHorsForfait['libelle']);
-                $date = $unFraisHorsForfait['date'];
-                $montant = $unFraisHorsForfait['montant'];
-                $id = $unFraisHorsForfait['id']; ?>           
-                <tr>
-                    <td> <?php echo $date ?></td>
-                    <td> <?php echo $libelle ?></td>
-                    <td><?php echo $montant ?></td>
-                    <td>
-                        <a href="index.php?uc=gererFrais&action=supprimerFrais&idFrais=<?php echo $id ?>" 
-                           onclick="return confirm('Voulez-vous vraiment supprimer ce frais?');">
-                            Supprimer ce frais
-                        </a>
-                    </td>
-                </tr>
+    <div class="card bg-info bg-opacity-25 p-0">
+        <div class="card-header">Descriptif des éléments hors forfait</div>
+        <div class="table-responsive">
+            <table class="table table-bordered m-0">
+                <thead>
+                    <tr>
+                        <th class="date">Date</th>
+                        <th class="libelle">Libellé</th>  
+                        <th class="montant">Montant</th>  
+                        <th class="action">&nbsp;</th> 
+                    </tr>
+                </thead>  
+                <tbody>
                 <?php
-            }
-            ?>
-            </tbody>  
-        </table>
+                foreach ($lesFraisHorsForfait as $unFraisHorsForfait) {
+                    $libelle = htmlspecialchars($unFraisHorsForfait['libelle']);
+                    $date = $unFraisHorsForfait['date'];
+                    $montant = $unFraisHorsForfait['montant'];
+                    $id = $unFraisHorsForfait['id']; ?>           
+                    <tr>
+                        <td> <?php echo $date ?></td>
+                        <td> <?php echo $libelle ?></td>
+                        <td><?php echo $montant ?></td>
+                        <td>
+                            <a href="index.php?uc=gererFrais&action=supprimerFrais&idFrais=<?php echo $id ?>" 
+                               onclick="return confirm('Voulez-vous vraiment supprimer ce frais?');">
+                                Supprimer ce frais
+                            </a>
+                        </td>
+                    </tr>
+                    <?php
+                }
+                ?>
+                </tbody>  
+            </table>
+        </div>
     </div>
 </div>
 <div class="row">
     <h3>Nouvel élément hors forfait</h3>
     <div class="col-md-4">
         <form action="index.php?uc=gererFrais&action=validerCreationFrais" 
-              method="post" role="form">
+              method="post" role="form" class='d-grid row-gap-3'>
             <div class="form-group">
                 <label for="txtDateHF">Date (jj/mm/aaaa): </label>
                 <input type="date" id="txtDateHF" name="dateFrais" 
@@ -72,12 +74,14 @@
             <div class="form-group">
                 <label for="txtMontantHF">Montant : </label>
                 <div class="input-group">
-                    <span class="input-group-addon">€</span>
+                    <span class="input-group-text">€</span>
                     <input type="text" id="txtMontantHF" name="montant" class="form-control" value="">
                 </div>
             </div>
-            <button class="btn btn-success" type="submit">Ajouter</button>
-            <button class="btn btn-danger" type="reset">Effacer</button>
+            <div class='d-flex gap-3'>
+                <button class="btn btn-success w-25" type="submit">Ajouter</button>
+                <button class="btn btn-danger w-25" type="reset">Effacer</button>
+            </div>
         </form>
     </div>
 </div>

@@ -26,7 +26,7 @@
         <form method="post" 
               action="index.php?uc=gererFrais&action=validerMajFraisForfait" 
               role="form">
-            <fieldset>       
+            <fieldset class='d-grid row-gap-3'>       
                 <?php
                 foreach ($lesFraisForfait as $unFrais) {
                     $idFrais = $unFrais['idfrais'];
@@ -43,8 +43,10 @@
                     <?php
                 }
                 ?>
-                <button class="btn btn-success" type="submit">Ajouter</button>
-                <button class="btn btn-danger" type="reset">Effacer</button>
+                <div class='d-flex gap-3'>
+                    <button class="btn btn-success w-25" type="submit">Ajouter</button>
+                    <button class="btn btn-danger w-25" type="reset">Effacer</button>
+                </div>
             </fieldset>
         </form>
     </div>

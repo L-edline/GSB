@@ -28,6 +28,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="./styles/bootstrap/bootstrap.css" rel="stylesheet">
         <link href="./styles/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     </head>
     <body>
         <div class="container">
@@ -39,35 +40,44 @@
                 <div class="row vertical-align">
                     <div class="col-md-4">
                         <h1>
-                            <img src="./images/logo.jpg" class="img-responsive" 
+                            <img src="./images/logo.jpg" class="img-fluid" 
                                  alt="Laboratoire Galaxy-Swiss Bourdin" 
                                  title="Laboratoire Galaxy-Swiss Bourdin">
                         </h1>
                     </div>
                     <div class="col-md-8">
-                        <ul class="nav nav-pills pull-right" role="tablist">
-                            <li <?php if (!$uc || $uc == 'accueil') { ?>class="active" <?php } ?>>
-                                <a href="index.php">
-                                    <span class="glyphicon glyphicon-home"></span>
+                        <ul class="nav nav-pills float-end" role="tablist">
+                            <li class="nav-item">
+                                <a href="index.php" 
+                                   class="nav-link <?php if (!$uc || $uc == 'accueil') { ?>active <?php } ?>"
+                                
+>                    
+                                    <span class="bi bi-house-fill"></span>
                                     Accueil
                                 </a>
                             </li>
-                            <li <?php if ($uc == 'gererFrais') { ?>class="active"<?php } ?>>
-                                <a href="index.php?uc=gererFrais&action=saisirFrais">
-                                    <span class="glyphicon glyphicon-pencil"></span>
+                            <li class="nav-item">
+                                <a href="index.php?uc=gererFrais&action=saisirFrais" 
+                                   class="nav-link <?php if ($uc == 'gererFrais') { ?>active <?php } ?>"
+                                >
+                                    <span class="bi bi-pencil-fill"></span>
                                     Renseigner la fiche de frais
                                 </a>
                             </li>
-                            <li <?php if ($uc == 'etatFrais') { ?>class="active"<?php } ?>>
-                                <a href="index.php?uc=etatFrais&action=selectionnerMois">
-                                    <span class="glyphicon glyphicon-list-alt"></span>
+                            <li class="nav-item">
+                                <a href="index.php?uc=etatFrais&action=selectionnerMois" 
+                                   class="nav-link <?php if ($uc == 'etatFrais') { ?>active <?php } ?>"
+                                >
+                                    <span class="bi bi-card-list"></span>
                                     Afficher mes fiches de frais
                                 </a>
                             </li>
-                            <li 
+                            <li class="nav-item"
                             <?php if ($uc == 'deconnexion') { ?>class="active"<?php } ?>>
-                                <a href="index.php?uc=deconnexion&action=demandeDeconnexion">
-                                    <span class="glyphicon glyphicon-log-out"></span>
+                                <a href="index.php?uc=deconnexion&action=demandeDeconnexion" 
+                                   class="nav-link <?php if ($uc == 'deconnexion') { ?>active <?php } ?>"
+                                >
+                                    <span class="bi bi-box-arrow-right"></span>
                                     Déconnexion
                                 </a>
                             </li>
@@ -78,9 +88,9 @@
             <?php
             } else {
                 ?>   
-                <h1>
+                <h1 class="text-center">
                     <img src="./images/logo.jpg"
-                         class="img-responsive center-block"
+                         class="img-fluid"
                          alt="Laboratoire Galaxy-Swiss Bourdin"
                          title="Laboratoire Galaxy-Swiss Bourdin">
                 </h1>
